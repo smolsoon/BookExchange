@@ -1,0 +1,30 @@
+Diagram UML USE CASE;
+Diagram UML DIAGRAM CLASS;
+
+
+Write/Command: POST    
+    - Rejestracja
+    - Logowanie 
+    - Dodanie ksiazki
+    - 
+
+
+Read/Queries:
+    - Uzytkownik
+    - ksiazki
+    - 
+
+
+
+    bookeXchange | Strona Głowna | Biblioteczka |   Obserwowani            |Zaloguj sie
+                                  - Twoje ksizki  - Oferty znajomych  
+                                  - Dodaj ksiazke - 
+                                  - Twoje oferty
+
+
+Logowanie  - >      account/login 
+Rejestracja - >     account/register
+
+Strona głowna pozalogowaniu sie -> home/{userId}
+
+Dodanie ksiazki -> book

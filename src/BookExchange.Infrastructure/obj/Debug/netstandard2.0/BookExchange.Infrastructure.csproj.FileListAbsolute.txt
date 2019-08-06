@@ -1,0 +1,12 @@
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\bin\Debug\netstandard2.0\BookExchange.Infrastructure.deps.json
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\bin\Debug\netstandard2.0\BookExchange.Infrastructure.dll
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\bin\Debug\netstandard2.0\BookExchange.Infrastructure.pdb
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\bin\Debug\netstandard2.0\BookExchange.Core.dll
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\bin\Debug\netstandard2.0\BookExchange.Core.pdb
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.csprojAssemblyReference.cache
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.AssemblyInfo.cs
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.csproj.CopyComplete
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.dll
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Infrastructure\obj\Debug\netstandard2.0\BookExchange.Infrastructure.pdb

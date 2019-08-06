@@ -29,7 +29,14 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj": {
+                "projectPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj"
+              },
+              "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Infrastructure\\BookExchange.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Infrastructure\\BookExchange.Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -47,6 +54,10 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
               "target": "Package",
@@ -57,6 +68,134 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj",
+        "projectName": "BookExchange.Core",
+        "projectPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj",
+        "packagesPath": "C:\\Users\\ksmol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ksmol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Infrastructure\\BookExchange.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Infrastructure\\BookExchange.Infrastructure.csproj",
+        "projectName": "BookExchange.Infrastructure",
+        "projectPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Infrastructure\\BookExchange.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ksmol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ksmol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj": {
+                "projectPath": "C:\\Users\\ksmol\\Desktop\\BookExchange\\src\\BookExchange.Core\\BookExchange.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Neo4jClient": {
+              "target": "Package",
+              "version": "[3.1.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.5.0, )"
             }
           },
           "imports": [

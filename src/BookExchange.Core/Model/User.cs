@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace BookExchange.Core.Model
 {
-    public class User : Entity
+    public class User 
     {
-        private static List<string> _roles = new List<string>
-        {
-            "user", "admin"
-        };
+        public Guid Id { get; set; }
         public string Role { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
@@ -17,12 +15,37 @@ namespace BookExchange.Core.Model
         public DateTime DateOfBirth  { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        protected User()
+        private static List<string> _roles = new List<string>
+        {
+            "user", "admin"
+        };
+
+         protected User()
         {
         }
-
-        public User(Guid id, string role, string name,string email, string password)
+        
+        public User(Guid id)
         {
+            Id = id;
+        }
+
+        public User(string firstname, string lastname)
+        {
+            Firstname = firstname;
+            Lastname = lastname;
+        }
+
+        public User(Guid id, string role, string firstname, string lastname, string email, 
+            string password, DateTime dateOfBirth)
+        {
+            Id = id;
+            Role = role;
+            Firstname = firstname;
+            Lastname = lastname;
+            Email = email;
+            Password = password;
+            DateOfBirth = dateOfBirth;
+            CreatedAt = DateTime.UtcNow;
         }
 
     }

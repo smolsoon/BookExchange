@@ -1,0 +1,9 @@
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\bin\Debug\netstandard2.0\BookExchange.Core.deps.json
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\bin\Debug\netstandard2.0\BookExchange.Core.dll
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\bin\Debug\netstandard2.0\BookExchange.Core.pdb
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\obj\Debug\netstandard2.0\BookExchange.Core.csprojAssemblyReference.cache
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\obj\Debug\netstandard2.0\BookExchange.Core.csproj.CoreCompileInputs.cache
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\obj\Debug\netstandard2.0\BookExchange.Core.AssemblyInfoInputs.cache
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\obj\Debug\netstandard2.0\BookExchange.Core.AssemblyInfo.cs
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\obj\Debug\netstandard2.0\BookExchange.Core.dll
+C:\Users\ksmol\Desktop\BookExchange\src\BookExchange.Core\obj\Debug\netstandard2.0\BookExchange.Core.pdb
