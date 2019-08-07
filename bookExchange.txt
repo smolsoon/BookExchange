@@ -12,19 +12,30 @@ Write/Command: POST
 Read/Queries:
     - Uzytkownik
     - ksiazki
-    - 
-
 
 
     bookeXchange | Strona Głowna | Biblioteczka |   Obserwowani            |Zaloguj sie
                                   - Twoje ksizki  - Oferty znajomych  
                                   - Dodaj ksiazke - 
                                   - Twoje oferty
+GET:
+Obserwowani (wszyscy)-> account/{userId}/following
+Obserwowani po (id) -> account/{userId}/following/{subscriberId}
+Obserwujacy -> account/{userId}/followers
+Obserwujacy po (id) -> account/{userId}/followers/{subscriberId} 
 
+Twoje ksiazki ->   account/{userId}/yoursbook
+Twoje ksiazki(id) ->   account/{userId}/yoursbook/{bookId}
+
+ksiazki followers'ow  -> account/{userId}/following/books
+Ksiazki Obserwowani po (id) -> account/{userId}/following/{subscriberId}/books
+ksiazka (id) obserwowani po (id) -> account/{userId}/following/{subscriberId}/books/{bookId}
+
+
+POST:
 
 Logowanie  - >      account/login 
 Rejestracja - >     account/register
+Strona głowna pozalogowaniu sie -> account/{userId}
+Dodanie ksiazki -> account/{userId}/addbook
 
-Strona głowna pozalogowaniu sie -> home/{userId}
-
-Dodanie ksiazki -> book

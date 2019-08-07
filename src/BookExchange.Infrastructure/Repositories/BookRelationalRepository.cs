@@ -25,7 +25,7 @@ namespace BookExchange.Infrastructure.Repositories
         {
             await _client.ConnectAsync();
             var query = _client.Cypher
-                .Match("(user:User)", "(book:Book)")
+                .OptionalMatch("(user:User)-[:HAVE]->(book:Book)")
                 .Where((UserDetails user) => user.Id == userId)
                 .AndWhere((BookDetails book) => book.Id == bookId)
                 .Return(book => book.As<BookDetails>())
@@ -38,9 +38,9 @@ namespace BookExchange.Infrastructure.Repositories
         {
             await _client.ConnectAsync();
             var query = _client.Cypher 
-                .Match("(n:Book)", "(user:User)")
+                .OptionalMatch("(user:User)-[:HAVE]->(book:Book)")
                 .Where((UserDetails user) => user.Id == userId)
-                .Return(n=> n.As<BookDetails>());
+                .Return(book=> book.As<BookDetails>());
 
             return (await query.ResultsAsync).ToList();           
         }

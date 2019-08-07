@@ -22,29 +22,21 @@ namespace BookExchange.Api.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Get()
-        {
-            return Json(await _bookService.BrowseAsync());
-        }
+            => Json(await _bookService.BrowseAsync());
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
-        {
-            return Json(await _bookService.GetAsync(id));
-        }
+            => Json(await _bookService.GetAsync(id));
 
         [HttpGet("{userId}/yourslibrary")]
         public async Task<IActionResult> GetAllBooks(Guid userId)
-        {
-            return Json(await _relationalService.BrowseUserBooksAsync(userId));
-        }
+            =>Json(await _relationalService.BrowseUserBooksAsync(userId));
 
         [HttpGet("{userId}/yourslibrary/{bookId}")]
-        public async Task<IActionResult> GetUserBooks(Guid userId, Guid bookId)
-        {
-            return Json(await _relationalService.GetUserBookAsync(userId, bookId));
-        }
+        public async Task<IActionResult> GetUserBook(Guid userId, Guid bookId)
+            =>Json(await _relationalService.GetUserBookAsync(userId, bookId));
 
-        [HttpPost("{userId}/addBook")]
+        [HttpPost("{userId}/yourslibrary/addBook")]
         public async Task<IActionResult> Post([FromBody]AddBook command, Guid userId)
         {    
             command.Id = Guid.NewGuid();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BookExchange.Core.Commands;
 using BookExchange.Core.Repositories;
@@ -18,12 +19,69 @@ namespace BookExchange.Infrastructure.Repositories
             _neo4j = neo4j.Value;
             _client = new BoltGraphClient(_neo4j.Uri, _neo4j.User, _neo4j.Password);
         }
-        public Task<UserDetails> GetSubscriberAsync(Guid userId, Guid subscriberId)
+
+        public async Task<ICollection<UserDetails>> GetFollowingAsync(Guid userId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .OptionalMatch("(user:User)-[SUBSCRIBE]->(subscriber:User)")
+                .Where((UserDetails user) => user.Id == userId)
+                .Return(subscriber=> subscriber.As<UserDetails>());
+
+            return (await query.ResultsAsync).ToList();        
+        }
+
+        public async Task<ICollection<UserDetails>> GetFollowersAsync(Guid userId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .OptionalMatch("(subscriber:User)-[:SUBSCRIBE]->(user:User)")
+                .Where((UserDetails user) => user.Id == userId)
+                .Return(subscriber=> subscriber.As<UserDetails>());
+                
+            return (await query.ResultsAsync).ToList();
+        }
+
+        public async Task<UserDetails> GetFollowingByIdAsync(Guid userId, Guid subscriberId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .OptionalMatch("(user:User)-[SUBSCRIBE]->(subscriber:User)")
+                .Where((UserDetails user) => user.Id == userId)
+                .Return(subscriber=> subscriber.As<UserDetails>());
+                
+            return (await query.ResultsAsync).FirstOrDefault();
+        }
+
+        public async Task<UserDetails> GetFollowersByIdAsync(Guid userId, Guid subscriberId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .OptionalMatch("(subscriber:User)-[:SUBSCRIBE]->(user:User)")
+                .Where((UserDetails user) => user.Id == userId)
+                .AndWhere((UserDetails subscriber)=> subscriber.Id == subscriberId)
+                .Return(subscriber=> subscriber.As<UserDetails>());
+                
+            return (await query.ResultsAsync).FirstOrDefault();
+        }
+
+        public async Task<ICollection<BookDetails>> GetBooksByFollowing(Guid userId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .Match("(subscriber:User)-[:HAVE]->(book:Book)", "(user:User)-[:SUBSCRIBE]->(subscriber:User)")
+                .Where((UserDetails user) => user.Id == userId)
+                .Return(book => book.As<BookDetails>());
+                
+            return (await query.ResultsAsync).ToList();
+        }
+
+        public Task<ICollection<BookDetails>> GetBooksByFollowingById(Guid userId, Guid subscriberId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<UserDetails>> BrowseSubscribersAsync(Guid userId)
+        public Task<BookDetails> GetBookIdByFollowingById(Guid userId, Guid subscriberId, Guid bookId)
         {
             throw new NotImplementedException();
         }
