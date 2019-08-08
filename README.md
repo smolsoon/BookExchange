@@ -12,3 +12,4 @@ Project is created with:
 * .NET Core 2.2
 * Neo4J
 * Vue.JS
+* Docker

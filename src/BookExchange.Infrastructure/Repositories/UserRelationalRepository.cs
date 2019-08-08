@@ -76,9 +76,14 @@ namespace BookExchange.Infrastructure.Repositories
             return (await query.ResultsAsync).ToList();
         }
 
-        public Task<ICollection<BookDetails>> GetBooksByFollowingById(Guid userId, Guid subscriberId)
+        public async Task<ICollection<BookDetails>> GetBooksByFollowingById(Guid userId, Guid subscriberId)
         {
-            throw new NotImplementedException();
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .Match("(user:User{Id:"+ $"userId"+"})-[:SUBSCRIBE]->(subscriber:User{Id:"+$"subscriberId"+"})-[:HAVE]->(book:Book)")
+                .Return(book => book.As<BookDetails>());
+            //do poprawy
+            return (await query.ResultsAsync).ToList();
         }
 
         public Task<BookDetails> GetBookIdByFollowingById(Guid userId, Guid subscriberId, Guid bookId)

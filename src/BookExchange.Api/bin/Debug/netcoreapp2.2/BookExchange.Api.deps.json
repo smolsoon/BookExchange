@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "0a758b0927b852d1672c44fd22953b084175c1a6"
+    "signature": "2063aac955e7a049db11288290347012f07064f6"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,8 @@
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
-          "Microsoft.NETCore.App": "2.2.0"
+          "Microsoft.NETCore.App": "2.2.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.4.10"
         },
         "runtime": {
           "BookExchange.Api.dll": {}
@@ -110,6 +111,7 @@
           "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.4.10": {},
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.2.0",
@@ -3423,6 +3425,13 @@
       "sha512": "sha512-cu1klZiuCwVYbXHs0QdnseuoRGG1/85VX9d1Sk0vbJlKp+HJUN/4pAS/fe2m9bTOYyIPdeCHeksMiVHgo1EfAA==",
       "path": "microsoft.identitymodel.tokens/5.5.0",
       "hashPath": "microsoft.identitymodel.tokens.5.5.0.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.4.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V7H6e/ZkxYtBzFZxuj0N/ubyiwkGfZnS7Ha+W9mvqfrA8XLiEg8H5SzYh+kVeb45nvFMI1/8XA6Nuj09t/OE5Q==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.4.10",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.4.10.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",

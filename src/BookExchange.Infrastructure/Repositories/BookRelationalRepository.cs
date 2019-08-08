@@ -28,8 +28,7 @@ namespace BookExchange.Infrastructure.Repositories
                 .OptionalMatch("(user:User)-[:HAVE]->(book:Book)")
                 .Where((UserDetails user) => user.Id == userId)
                 .AndWhere((BookDetails book) => book.Id == bookId)
-                .Return(book => book.As<BookDetails>())
-                .Limit(1);
+                .Return(book => book.As<BookDetails>());
 
             return (await query.ResultsAsync).FirstOrDefault();
         }
