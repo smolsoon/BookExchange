@@ -8,3 +8,9 @@ services:
         dockerfile: Dockerfile
       ports: 
         - "8000:80"
+    
+    neo4j_image:
+      image: neo4j:latest
+      ports:
+        - "7687"
+      restart: always

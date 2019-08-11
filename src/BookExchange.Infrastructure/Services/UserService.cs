@@ -61,5 +61,30 @@ namespace BookExchange.Infrastructure.Services
             var user = new User(userId, role, firstname,lastname, email, password, dateOfBirth);
             await _userRepository.AddUserAsync(user); 
         }
+
+        Task<ICollection<AccountDTO>> IUserService.BrowseAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<UserDetailsDTO> IUserService.GetAccountAsync(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserDetailsDTO GetUser(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TokenDTO> IUserService.LoginAsync(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IUserService.RegisterAsync(Guid userId, string email, string firstname, string lastname, string password, DateTime dateOfBirth, string role)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -100,6 +100,6 @@ namespace BookExchange.Infrastructure.Repositories
             .AndWhere((UserDetails subscriber) => subscriber.Id == subscriberId)
             .CreateUnique("(user)-[:SUBSCRIBE]->(subscriber)")
             .ExecuteWithoutResultsAsync();
-        }      
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace BookExchange.Infrastructure.Services
         Task RegisterAsync(Guid userId, string email, string firstname, string lastname, 
             string password, DateTime dateOfBirth, string role = "user");
         Task<TokenDTO> LoginAsync(string email, string password);
+        UserDetailsDTO GetUser(Guid userId);
     }
 }

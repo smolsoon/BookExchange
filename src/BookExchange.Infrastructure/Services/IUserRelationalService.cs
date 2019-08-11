@@ -12,9 +12,9 @@ namespace BookExchange.Infrastructure.Services
         Task<ICollection<SubscriberDTO>> GetFollowersAsync(Guid userId);
         Task<SubscriberDTO> GetFollowingByIdAsync(Guid userId, Guid subscriberId);
         Task<SubscriberDTO> GetFollowersByIdAsync(Guid userId, Guid subscriberId);
-        Task<ICollection<BookDetailsDTO>> GetBooksByFollowing(Guid userId);
-        Task<ICollection<BookDetailsDTO>> GetBooksByFollowingById(Guid userId, Guid subscriberId);
-        Task<BookDetailsDTO> GetBookIdByFollowingById(Guid userId, Guid subscriberId, Guid bookId);
-        Task AddSubscriberAsync (Guid userId, Guid subscriberId);
+        Task<ICollection<BookDetailsDTO>> GetBooksByFollowingAsync(Guid userId);
+        Task<ICollection<BookDetailsDTO>> GetBooksByFollowingByIdAsync(Guid userId, Guid subscriberId);
+        Task<BookDetailsDTO> GetBookIdByFollowingByIdAsync(Guid userId, Guid subscriberId, Guid bookId);
+        Task AddSubscriberAsync(Guid userId, Guid subscriberId);
     }
 }

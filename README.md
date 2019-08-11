@@ -13,3 +13,4 @@ Project is created with:
 * Neo4J
 * Vue.JS
 * Docker
+* JSON Web Token

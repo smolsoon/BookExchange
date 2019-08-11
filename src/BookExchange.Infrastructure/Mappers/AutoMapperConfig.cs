@@ -18,6 +18,7 @@ namespace BookExchange.Infrastructure.Mappers
                 cfg.CreateMap<Book,BookDetails>();
                 cfg.CreateMap<BookDetails,BookDetailsDTO>();
                 cfg.CreateMap<UserDetails, SubscriberDTO>();
+                cfg.CreateMap<DivisionDetails, DivisionDTO>();
             })
             .CreateMapper();
     }

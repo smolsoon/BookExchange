@@ -35,10 +35,12 @@ namespace BookExchange.Api
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookRelationalRepository, BookRelationalRepository>();
             services.AddScoped<IUserRelationalRepository, UserRelationalRepository>();
+            services.AddScoped<IDivisionRelationalRepository, DivisionRelationalRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IBookRelationalService, BookRelationalService>();
             services.AddScoped<IUserRelationalService, UserRelationalService>();
+            services.AddScoped<IDivisionRelationalService, DivisionRelationalService>();
             services.AddSingleton<IJwtHandler,JwtHandler>();
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.Configure<Neo4JSettings>(Configuration.GetSection("neo4j"));

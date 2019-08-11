@@ -43,19 +43,19 @@ namespace BookExchange.Infrastructure.Services
             return _mapper.Map<SubscriberDTO>(subscriber);
         }
 
-        public async Task<ICollection<BookDetailsDTO>> GetBooksByFollowing(Guid userId)
+        public async Task<ICollection<BookDetailsDTO>> GetBooksByFollowingAsync(Guid userId)
         {
             var booksByFollowing = await _userRelationalRepository.GetBooksByFollowing(userId);
             return _mapper.Map<ICollection<BookDetailsDTO>>(booksByFollowing);
         }
 
-        public async Task<ICollection<BookDetailsDTO>> GetBooksByFollowingById(Guid userId, Guid subscriberId)
+        public async Task<ICollection<BookDetailsDTO>> GetBooksByFollowingByIdAsync(Guid userId, Guid subscriberId)
         {
             var booksByFollowingId = await _userRelationalRepository.GetBooksByFollowingById(userId, subscriberId);
             return _mapper.Map<ICollection<BookDetailsDTO>>(booksByFollowingId);
         }
 
-        public async Task<BookDetailsDTO> GetBookIdByFollowingById(Guid userId, Guid subscriberId, Guid bookId)
+        public async Task<BookDetailsDTO> GetBookIdByFollowingByIdAsync(Guid userId, Guid subscriberId, Guid bookId)
         {
             var booksIdByFollowingId = await _userRelationalRepository.GetBookIdByFollowingById(userId, subscriberId, bookId);
             return _mapper.Map<BookDetailsDTO>(booksIdByFollowingId);
