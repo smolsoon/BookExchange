@@ -22,10 +22,10 @@ namespace BookExchange.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task<ICollection<AccountDTO>> BrowseAsync()
+        public async Task<ICollection<UserDetailsDTO>> BrowseAsync()
         {
             var users = await _userRepository.BrowseUsersAsync();
-            return _mapper.Map<ICollection<AccountDTO>>(users);
+            return _mapper.Map<ICollection<UserDetailsDTO>>(users);
         }
 
         public async Task<UserDetailsDTO> GetAccountAsync (Guid userId)
@@ -60,11 +60,6 @@ namespace BookExchange.Infrastructure.Services
         {
             var user = new User(userId, role, firstname,lastname, email, password, dateOfBirth);
             await _userRepository.AddUserAsync(user); 
-        }
-
-        Task<ICollection<AccountDTO>> IUserService.BrowseAsync()
-        {
-            throw new NotImplementedException();
         }
 
         Task<UserDetailsDTO> IUserService.GetAccountAsync(Guid userId)

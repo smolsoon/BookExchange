@@ -22,7 +22,7 @@ namespace BookExchange.Infrastructure.Repositories
             _client = new BoltGraphClient(_neo4j.Uri, _neo4j.User, _neo4j.Password);
         }
 
-    
+
         public async Task<BookDetails> GetBookAsync(Guid id)
         {
             await _client.ConnectAsync();

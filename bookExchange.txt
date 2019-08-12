@@ -13,7 +13,7 @@ Read/Queries:
     - Uzytkownik
     - ksiazki
 
-
+                    
     bookeXchange | Strona Głowna | Biblioteczka |   Obserwowani          | Powiadomienia  |Zaloguj sie
                                   - Twoje ksizki  - Oferty znajomych  
                                   - Dodaj ksiazke - 

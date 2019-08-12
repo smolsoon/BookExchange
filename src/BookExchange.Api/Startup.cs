@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace BookExchange.Api
 {
@@ -67,6 +68,12 @@ namespace BookExchange.Api
                     ValidateAudience = false
                 };
             });
+
+            services.AddSwaggerGen(c=> 
+                { c.SwaggerDoc("v1", new Info 
+                    { Title = "BookExchange", Version = "V1" });  
+                });   
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,6 +98,11 @@ namespace BookExchange.Api
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();  
+            app.UseSwaggerUI(c=> {  
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");  
+                }); 
         }
     }
 }

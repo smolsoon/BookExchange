@@ -8,7 +8,7 @@ namespace BookExchange.Infrastructure.Services
 {
     public interface IUserService
     {
-        Task<ICollection<AccountDTO>> BrowseAsync();
+        Task<ICollection<UserDetailsDTO>> BrowseAsync();
         Task<UserDetailsDTO> GetAccountAsync (Guid userId);
         Task RegisterAsync(Guid userId, string email, string firstname, string lastname, 
             string password, DateTime dateOfBirth, string role = "user");
