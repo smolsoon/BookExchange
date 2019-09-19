@@ -62,22 +62,7 @@ namespace BookExchange.Infrastructure.Services
             await _userRepository.AddUserAsync(user); 
         }
 
-        Task<UserDetailsDTO> IUserService.GetAccountAsync(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
-
         public UserDetailsDTO GetUser(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TokenDTO> IUserService.LoginAsync(string email, string password)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task IUserService.RegisterAsync(Guid userId, string email, string firstname, string lastname, string password, DateTime dateOfBirth, string role)
         {
             throw new NotImplementedException();
         }

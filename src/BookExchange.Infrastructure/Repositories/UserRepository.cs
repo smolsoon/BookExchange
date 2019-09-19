@@ -60,7 +60,6 @@ namespace BookExchange.Infrastructure.Repositories
         public async Task AddUserAsync(User user)
         {
             await _client.ConnectAsync();
-
             await _client.Cypher
             .Create("(x:User {user})")
             .WithParam("user", new{

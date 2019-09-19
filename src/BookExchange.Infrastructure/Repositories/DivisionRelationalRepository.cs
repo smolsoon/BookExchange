@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BookExchange.Core.Commands;
 using BookExchange.Core.Repositories;
@@ -19,6 +20,29 @@ namespace BookExchange.Infrastructure.Repositories
             _client = new BoltGraphClient(_neo4j.Uri, _neo4j.User, _neo4j.Password);
         }
 
+        public async Task<ICollection<DivisionDetails>> GetDivisionAsync(Guid userId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher 
+                .OptionalMatch("(user:User)-[:YOUR_DIVISION]->(division:Division)")
+                .Where((DivisionDetails user) => user.Id == userId)
+                .Return(division=> division.As<DivisionDetails>());
+
+            return (await query.ResultsAsync).ToList();
+        }
+
+        public async Task<DivisionDetails> GetDivisionIdAsync(Guid userId, Guid divisionId)
+        {
+            await _client.ConnectAsync();
+            var query = _client.Cypher
+                .OptionalMatch("(user:User)-[:YOUR_DIVISION]->(division:Division)")
+                .Where((UserDetails user) => user.Id == userId)
+                .AndWhere((DivisionDetails division) => division.Id == divisionId)
+                .Return(division => division.As<DivisionDetails>());
+
+            return (await query.ResultsAsync).FirstOrDefault();
+        }
+
         public async Task AddRelationalDivision(Guid userId, Guid divisionId)
         {
             await _client.ConnectAsync();
@@ -30,7 +54,7 @@ namespace BookExchange.Infrastructure.Repositories
             .ExecuteWithoutResultsAsync();
         }
 
-        public async Task AddDivision(Guid id, string title)
+        public async Task AddDivision(Guid id, string title, Guid bookId, Guid userId)
         {
             await _client.ConnectAsync();
 
@@ -38,40 +62,22 @@ namespace BookExchange.Infrastructure.Repositories
             .Create("(x:Division {division})")
             .WithParam("division", new{
                 Id = id,
-                Title = title
+                UserId = userId,
+                Title = title,
+                BookId = bookId 
             })
             .ExecuteWithoutResultsAsync(); 
         }
 
-        public async Task AddQeuryDivision(Guid userId, Guid subscriberId, Guid bookId)
+        public async Task AddRelationalUserBookDivision(Guid subscriberId, Guid bookId)
         {
             await _client.ConnectAsync();
             await _client.Cypher
-            .Match("(user:User)", "(subscriber:User)" )
-            .Where((UserDetails user) => user.Id == userId)
-            .AndWhere((UserDetails subscriber) => subscriber.Id == subscriberId)
-            .CreateUnique("(user)-[:SUBSCRIBE]->(subscriber)")
+            .Match("(subscriber:User)", "(book:Book)" )
+            .Where((UserDetails subscriber) => subscriber.Id == subscriberId)
+            .AndWhere((BookDetails book) => book.Id == bookId)
+            .CreateUnique("(subscriber)-[:LENT]->(book)")
             .ExecuteWithoutResultsAsync();
-        }
-
-        public Task<ICollection<DivisionDetails>> GetDivisionAsync(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DivisionDetails> GetDivisionIdAsync(Guid userId, Guid divisionId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddRelationalDivision(Guid userId, Guid subscriberId, Guid bookId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddRelationalUserBookDivision(Guid userId, Guid subscriberId, Guid bookId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

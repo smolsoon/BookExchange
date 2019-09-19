@@ -17,22 +17,6 @@ namespace BookExchange.Infrastructure.Services
             _divisionRelationalRepository = divisionRelationalRepository;
             _mapper = mapper;
         }
-
-        public async Task AddDivision(Guid id, string title)
-        {
-            await _divisionRelationalRepository.AddDivision(id, title);
-        }
-
-        public async Task AddRelationalDivision(Guid userId, Guid divisionId)
-        {
-            await _divisionRelationalRepository.AddRelationalDivision(userId, divisionId);
-        }
-
-        public async Task AddRelationalUserBookDivision(Guid userId, Guid subscriberId, Guid bookId)
-        {
-            await _divisionRelationalRepository.AddRelationalUserBookDivision(userId, subscriberId, bookId);
-        }
-
         public async Task<ICollection<DivisionDTO>> GetDivisionAsync(Guid userId)
         {
             var divisions = await _divisionRelationalRepository.GetDivisionAsync(userId);
@@ -43,6 +27,21 @@ namespace BookExchange.Infrastructure.Services
         {
             var division = await _divisionRelationalRepository.GetDivisionIdAsync(userId, divisionId);
             return _mapper.Map<DivisionDTO>(division);
+        }
+
+        public async Task AddDivision(Guid id, string title, Guid bookId, Guid userId)
+        {
+            await _divisionRelationalRepository.AddDivision(id, title, bookId, userId);
+        }
+
+        public async Task AddRelationalDivision(Guid userId, Guid divisionId)
+        {
+            await _divisionRelationalRepository.AddRelationalDivision(userId, divisionId);
+        }
+
+        public async Task AddRelationalUserBookDivision(Guid subscriberId, Guid bookId)
+        {
+            await _divisionRelationalRepository.AddRelationalUserBookDivision(subscriberId, bookId);
         }
     }
 }

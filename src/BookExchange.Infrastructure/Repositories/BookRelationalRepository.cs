@@ -53,6 +53,6 @@ namespace BookExchange.Infrastructure.Repositories
             .AndWhere((BookDetails book) => book.Id == bookId)
             .CreateUnique("(user)-[:HAVE]->(book)")
             .ExecuteWithoutResultsAsync();
-        } 
+        }
     }
 }

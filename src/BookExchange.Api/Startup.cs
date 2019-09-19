@@ -29,6 +29,7 @@ namespace BookExchange.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                     .AddJsonOptions(x => x.SerializerSettings.Formatting = Formatting.Indented);
             services.AddAuthorization();
@@ -37,11 +38,13 @@ namespace BookExchange.Api
             services.AddScoped<IBookRelationalRepository, BookRelationalRepository>();
             services.AddScoped<IUserRelationalRepository, UserRelationalRepository>();
             services.AddScoped<IDivisionRelationalRepository, DivisionRelationalRepository>();
+            services.AddScoped<ILentRepository, LentRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IBookRelationalService, BookRelationalService>();
             services.AddScoped<IUserRelationalService, UserRelationalService>();
             services.AddScoped<IDivisionRelationalService, DivisionRelationalService>();
+            services.AddScoped<ILentService, LentService>();
             services.AddSingleton<IJwtHandler,JwtHandler>();
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.Configure<Neo4JSettings>(Configuration.GetSection("neo4j"));
